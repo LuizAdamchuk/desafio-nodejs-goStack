@@ -27,7 +27,7 @@ app.get("/repositories", (request, response) => {
 });
 
 app.post("/repositories", (request, response) => {
-  const { title, irl, techs } = request.body;
+  const { title, url, techs } = request.body;
 
   const repository = {
     id: uuid(),
@@ -73,7 +73,7 @@ app.delete("/repositories/:id", (request, response) => {
   }
   repositories.splice(repositoryIndex, 1);
 
-  return status(204).send();
+  return response.status(204).send();
 });
 
 app.post("/repositories/:id/like", (request, response) => {
